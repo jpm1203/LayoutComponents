@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useState} from "react";
 import { StyleSheet, View, TextInput, Button, StatusBar } from 'react-native';
 
 export default function ToDoForm({addTask}){
  
-  const[taskText, setTaskText] = React.useState('');
+  const[taskText, setTaskText] = useState('');
+
+  const handAdd = () => {
+    e.preventDefault();
+    addTask(taskText);
+    setTaskText('');
+};
   
   return (
     <View style={styles.form}>
@@ -13,8 +19,13 @@ export default function ToDoForm({addTask}){
         onChangeText={(text) => setTaskText(text)}
         value={taskText} 
       />
-      <Button title="Add Task" onPress={() => addTask(taskText)} />
-      
+      <Button 
+        title="Add Task" 
+        onPress={() => {
+          addTask(taskText); 
+          setTaskText('');
+        }} 
+      />      
       <StatusBar/>
     </View>
   );

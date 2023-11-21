@@ -1,26 +1,19 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import ToDoList from './ToDoList';
-import ToDoForm from './ToDoForm';
-import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './screens/home-screen';
+import AboutScreen from './screens/about-screen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-
-  const [tasks] = useState([
-    'Do laundry',
-    'Go to gym',
-    'Walk dog',
-  ]);
-
-  const addTask = (text) => {
-    setTasks([...tasks, text]);
- 
-  };
-
-  return (
-    <SafeAreaView>
-      <ToDoList tasks={tasks} />
-      <ToDoForm />
-    </SafeAreaView>
-  );
-};
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName ="Home">
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="About" component={AboutScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+}
