@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import MainLayout from "../layouts/main-layouts";
+import MainLayout from "../layouts/main-layout";
 import { Button, StyleSheet } from "react-native";
 import ToDoForm from "../components/todo-form";
 import ToDoList from "../components/todo-list";
