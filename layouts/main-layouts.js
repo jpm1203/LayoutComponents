@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import Header from './headers';
+import Footer from './footer';
 
 export default function MainLayout({ children }) {
   return (
@@ -9,6 +10,7 @@ export default function MainLayout({ children }) {
       <ScrollView>
         {children}
       </ScrollView>
+      <Footer title={"MyFooter.com"} />
     </View>
   );
 }
